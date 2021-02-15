@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
     <None Include="$(MSBuildThisFileDirectory)Content\GameFont.spritefont" />
   </ItemGroup>
 </Project>

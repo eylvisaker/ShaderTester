@@ -33,8 +33,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\WindowsDX\Debug</OutputPath>
+    <DefineConstants>TRACE;CUSTOM_MONOGAME</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\WindowsDX\Release</OutputPath>
+    <DefineConstants>TRACE;CUSTOM_MONOGAME</DefineConstants>
   </PropertyGroup>
 </Project>

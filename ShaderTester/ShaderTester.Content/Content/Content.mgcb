@@ -20,12 +20,6 @@
 /processorParam:TextureFormat=Compressed
 /build:GameFont.spritefont
 
-#begin lighting-shadows.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:lighting-shadows.fx
-
 #begin painterly/enchant-acid-1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -997,10 +991,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:painterly/protect-sky-3.png
-
-#begin PrimitiveRendererEffect.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:PrimitiveRendererEffect.fx
 

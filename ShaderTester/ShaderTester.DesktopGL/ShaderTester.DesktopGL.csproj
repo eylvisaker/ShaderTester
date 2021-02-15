@@ -39,8 +39,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\DesktopGL\Debug</OutputPath>
+    <DefineConstants>TRACE;CUSTOM_MONOGAME</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\DesktopGL\Release</OutputPath>
+    <DefineConstants>TRACE;CUSTOM_MONOGAME</DefineConstants>
   </PropertyGroup>
 </Project>

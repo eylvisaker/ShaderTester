@@ -24,6 +24,16 @@ namespace ShaderTester
         private Matrix projection;
         float t;
 
+#if MOJO
+        string DiffuseTextureParameterName = "texsampler+DiffuseTexture";
+        string NormalMapParameterName = "normalMapSampler+NormalMap";
+        string SpecularMapParameterName = "specularMapSampler+SpecularMap";
+#else
+        string DiffuseTextureParameterName = "DiffuseTexture";
+        string NormalMapParameterName = "NormalMap";
+        string SpecularMapParameterName = "SpecularMap";
+#endif
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -122,17 +132,6 @@ namespace ShaderTester
 
             effect.CurrentTechnique = effect.Techniques["RenderLightAndSpecular"];
 
-#if MOJO
-            var DiffuseTextureParameterName = "texsampler+DiffuseTexture";
-            var NormalMapParameterName = "normalMapSampler+NormalMap";
-            var SpecularMapParameterName = "specularMapSampler+SpecularMap";
-#else
-
-            var DiffuseTextureParameterName = "DiffuseTexture";
-            var NormalMapParameterName = "NormalMap";
-            var SpecularMapParameterName = "SpecularMap";
-
-#endif
             effect.Parameters["World"].SetValue(world);
             effect.Parameters["ViewProjection"].SetValue(view * projection);
             effect.Parameters["MasterColor"].SetValue(new Vector4(1, 1, 1, 1));
@@ -153,7 +152,11 @@ namespace ShaderTester
 
         private void SpriteBatchDrawWithEffect(Effect effect, Texture2D texture, Vector3 pt)
         {
-            spriteBatch.Begin(effect: effect);
+            spriteBatch.Begin(effect: effect
+#if CUSTOM_MONOGAME
+                , effectTextureParameter: effect.Parameters[DiffuseTextureParameterName]
+#endif
+                );
             spriteBatch.Draw(texture, new Vector2(pt.X, pt.Y), Color.White);
             spriteBatch.End();
         }
